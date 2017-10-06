@@ -11,19 +11,18 @@ public class Deck {
 		deck = new Stack<Card>();
 	}
 	
-	public void addCardToDeck(int val, int face) {
-		Card card = new Card(val,face);
+	public void addCardToDeck(CardValue val, CardSuit suit) {
+		Card card = new Card(val,suit);
 		deck.push(card);
 	}
 	
 	public void populateDeck() {
-		for(int i = 0; i< 4;i++) {
-			for(int j = 1;j < 15;j++) {
-				addCardToDeck(j,i);
+		for(CardSuit suit : CardSuit.values()){
+			for(CardValue val : CardValue.values()){
+				addCardToDeck(val,suit);
 			}
 		}
 	}
-	
 	public void shuffleDeck() {
 		Collections.shuffle(deck);
 	}

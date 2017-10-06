@@ -7,8 +7,8 @@ public class Test {
 
 		Deck deck = new Deck();
 		deck.populateDeck();
+		//deck.shuffleDeck();
 		deck.printAllDeck();
-		
 		
 		
 		
