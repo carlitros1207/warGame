@@ -6,10 +6,10 @@ public class Test {
 		Player sue = new Player("sue");
 
 		Deck deck = new Deck();
-		//deck.addCardToDeck(4, 3);
 		deck.populateDeck();
-		//deck.getCard();
 		deck.printAllDeck();
+		
+		
 		
 		
 		System.out.println(bob.getName());

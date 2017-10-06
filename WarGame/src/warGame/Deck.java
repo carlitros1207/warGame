@@ -1,5 +1,6 @@
 package warGame;
 
+import java.util.Collections;
 import java.util.Stack;
 
 public class Deck {
@@ -22,6 +23,11 @@ public class Deck {
 			}
 		}
 	}
+	
+	public void shuffleDeck() {
+		Collections.shuffle(deck);
+	}
+	
 	public void printAllDeck() {
 		Object[] vals = deck.toArray();
 		for(Object obj : vals) {
@@ -30,7 +36,7 @@ public class Deck {
 	}
 	public void getCard(){
 		if(deck.empty() == true) {
-			
+			System.out.println("Deck is empty");
 		}else
 			System.out.println(deck.pop().toString());
 	}
