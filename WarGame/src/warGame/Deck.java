@@ -11,15 +11,14 @@ public class Deck {
 		deck = new Stack<Card>();
 	}
 	
-	public void addCardToDeck(CardValue val, CardSuit suit) {
-		Card card = new Card(val,suit);
+	public void addCardToDeck(Card card) {
 		deck.push(card);
 	}
 	
 	public void populateDeck() {
 		for(CardSuit suit : CardSuit.values()){
 			for(CardValue val : CardValue.values()){
-				addCardToDeck(val,suit);
+				addCardToDeck(new Card(val,suit));
 			}
 		}
 	}
@@ -33,10 +32,14 @@ public class Deck {
 				System.out.println(obj);
 		}
 	}
-	public void getCard(){
+	public Card getCard(){
 		if(deck.empty() == true) {
 			System.out.println("Deck is empty");
+			return null;
 		}else
-			System.out.println(deck.pop().toString());
+			return deck.pop();
+	}
+	public Stack<Card> getDeck() {
+		return deck;
 	}
 }

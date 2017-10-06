@@ -9,10 +9,6 @@ public class Card extends Deck{
 		setSuit(suit);
 	}
 
-	public void setSuit(CardSuit suit) {
-		this.suit = suit;
-	}
-
 	@Override
 	public String toString() {
 
@@ -31,5 +27,16 @@ public class Card extends Deck{
 	public void setValue(CardValue value) {
 		this.value = value;
 	}
+	
+	public CardValue getValue() {
+		return value;
+	}
 
+	public CardSuit getSuit() {
+		return suit;
+	}
+
+	public void setSuit(CardSuit suit) {
+		this.suit = suit;
+	}
 }
