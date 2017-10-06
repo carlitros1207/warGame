@@ -34,7 +34,12 @@ public class Deck {
 	}
 	public Card getCard(){
 		if(deck.empty() == true) {
-			System.out.println("Deck is empty");
+			return null;
+		}else
+			return deck.peek();
+	}
+	public Card removeCard() {
+		if(deck.empty() == true) {
 			return null;
 		}else
 			return deck.pop();

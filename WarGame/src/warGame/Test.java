@@ -7,18 +7,18 @@ public class Test {
 		Deck deck = new Deck();
 		War game = new War(bob, sue, deck);
 		
-		//deck.populateDeck();
+		deck.populateDeck();
 		deck.shuffleDeck();
-		deck.addCardToDeck(new Card(CardValue.FIVE, CardSuit.HEARTS));
-		deck.addCardToDeck(new Card(CardValue.SEVEN, CardSuit.HEARTS));
-		deck.addCardToDeck(new Card(CardValue.EIGHT, CardSuit.HEARTS));
-		deck.addCardToDeck(new Card(CardValue.ACE, CardSuit.HEARTS));
+		//deck.addCardToDeck(new Card(CardValue.FIVE, CardSuit.CLUBS));
+		//deck.addCardToDeck(new Card(CardValue.SEVEN, CardSuit.HEARTS));
+		//deck.addCardToDeck(new Card(CardValue.FIVE, CardSuit.SPADES));
+		//deck.addCardToDeck(new Card(CardValue.ACE, CardSuit.DIAMONDS));
 		//deck.printAllDeck();
 		
 		game.dealCardsToPlayers();
-		
-		System.out.println(bob.getPlayerDeck().getCard());
-		System.out.println(sue.getPlayerDeck().getCard());
+		game.playGame();
+		//System.out.println(bob.getPlayerDeck().getCard());
+		//System.out.println(sue.getPlayerDeck().getCard());
 	}
 
 }

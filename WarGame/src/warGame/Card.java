@@ -28,11 +28,11 @@ public class Card extends Deck{
 		this.value = value;
 	}
 	
-	public CardValue getValue() {
+	public CardValue getCardValue() {
 		return value;
 	}
 
-	public CardSuit getSuit() {
+	public CardSuit getCardSuit() {
 		return suit;
 	}
 
