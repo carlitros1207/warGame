@@ -14,8 +14,24 @@ public class Deck {
 		Card card = new Card(val,face);
 		deck.push(card);
 	}
-	public void getCard() {
-		System.out.println("hello");
-		System.out.println(deck.pop().toString());
+	
+	public void populateDeck() {
+		for(int i = 0; i< 4;i++) {
+			for(int j = 1;j < 15;j++) {
+				addCardToDeck(j,i);
+			}
+		}
+	}
+	public void printAllDeck() {
+		Object[] vals = deck.toArray();
+		for(Object obj : vals) {
+				System.out.println(obj);
+		}
+	}
+	public void getCard(){
+		if(deck.empty() == true) {
+			
+		}else
+			System.out.println(deck.pop().toString());
 	}
 }
