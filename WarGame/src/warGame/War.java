@@ -1,26 +1,36 @@
 package warGame;
 
+import java.util.List;
+
 public class War {
 
-	private Player player1;
+	// Made this class more abstract so the 3 variations can all inherit from it.
+	// Most notably players are passed as a list now so variation 3 won't have to be written from scratch.
 	
-	private Player player2;
+	public static final int PLAYER_1 = 0;
+	public static final int PLAYER_2 = 1;
+	public static final int PLAYER_3 = 2;
 	
-	private Deck mainDeck;
+	public List<Player> players;
 	
-	public War(Player player1, Player player2, Deck mainDeck) {
-		setPlayer1(player1);
-		setPlayer2(player2);
+	public Deck mainDeck;
+	
+	public War(List<Player> players, Deck mainDeck) {
+		this.players = players;
 		setMainDeck(mainDeck);
 	}
 	
 	public void dealCardsToPlayers() {
-		while(mainDeck.getDeck().empty() != true) {
-			player1.getPlayerDeck().addCardToDeck(mainDeck.removeCard());
-			player2.getPlayerDeck().addCardToDeck(mainDeck.removeCard());
+		while(mainDeck.getDeck().isEmpty() != true) {
+			for (Player player : players) {
+				player.getPlayerDeck().addCardToTopOfDeck(mainDeck.removeCard());
+			}
+
 		}
 	}
 	
+	
+	/*
 	public void playGame() {
 		int iterations = 0;
 		while(iterations < 30 && player2.getPlayerDeck().getCard() != null && player1.getPlayerDeck().getCard() != null) {
@@ -54,7 +64,7 @@ public class War {
 					if(player1.getPlayerDeck().getCard().getCardValue().getValue() == player2.getPlayerDeck().getCard().getCardValue().getValue()) {
 						System.out.println(player1.getName() + " played " + player1.getPlayerDeck().getCard());
 						System.out.println(player2.getName() + " played " + player2.getPlayerDeck().getCard());
-						System.out.println(player1.getName() + " WAR!");
+						System.out.println("WAR!");
 						mainDeck.addCardToDeck(player1.getPlayerDeck().removeCard());
 						mainDeck.addCardToDeck(player2.getPlayerDeck().removeCard());
 						runRound(player1, player2);
@@ -64,33 +74,42 @@ public class War {
 		}
 	}
 	
-	private void checkDecks() {
-		if(player1.getPlayerDeck().getDeck().empty() == true) {
+
+	
+	public void checkDecks() {
+		if(player1.getPlayerDeck().getDeck().isEmpty() == true) {
 			System.out.println(player1.getName() + " wins the game!");
 			System.exit(0);
 		}
-		if(player2.getPlayerDeck().getDeck().empty() == true) {
+		if(player2.getPlayerDeck().getDeck().isEmpty() == true) {
 			System.out.println(player2.getName() + " wins the game!");
 			System.exit(0);
 		}
 
 	}
 	
-	public Player getPlayer1() {
-		return player1;
+
+	
+	public int getPlayer1() {
+		return 0;
 	}
+
 
 	public void setPlayer1(Player player1) {
 		this.player1 = player1;
 	}
 
-	public Player getPlayer2() {
-		return player2;
+
+	public int getPlayer2() {
+		return 1;
 	}
+
 
 	public void setPlayer2(Player player2) {
 		this.player2 = player2;
 	}
+	*/
+
 
 	public Deck getMainDeck() {
 		return mainDeck;

@@ -1,24 +1,33 @@
 package warGame;
 
 import java.util.Collections;
-import java.util.Stack;
+import java.util.LinkedList;
+
+	/**
+	 * Decks are now LinkedLists so we can add to and take
+	 * from the top and bottom.
+	 */
 
 public class Deck {
-	private Stack<Card> deck;
+	private LinkedList<Card> deck;
 	
 	
 	public Deck() {
-		deck = new Stack<Card>();
+		deck = new LinkedList<Card>();
 	}
 	
-	public void addCardToDeck(Card card) {
+	public void addCardToTopOfDeck(Card card) {
 		deck.push(card);
+	}
+	
+	public void addCardToBottomOfDeck(Card card) {
+		deck.addLast(card);
 	}
 	
 	public void populateDeck() {
 		for(CardSuit suit : CardSuit.values()){
 			for(CardValue val : CardValue.values()){
-				addCardToDeck(new Card(val,suit));
+				addCardToTopOfDeck(new Card(val,suit));
 			}
 		}
 	}
@@ -33,18 +42,18 @@ public class Deck {
 		}
 	}
 	public Card getCard(){
-		if(deck.empty() == true) {
+		if(deck.isEmpty() == true) {
 			return null;
 		}else
 			return deck.peek();
 	}
 	public Card removeCard() {
-		if(deck.empty() == true) {
+		if(deck.isEmpty() == true) {
 			return null;
 		}else
 			return deck.pop();
 	}
-	public Stack<Card> getDeck() {
+	public LinkedList<Card> getDeck() {
 		return deck;
 	}
 }
