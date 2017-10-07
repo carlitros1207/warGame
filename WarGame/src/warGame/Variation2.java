@@ -1,23 +1,19 @@
 package warGame;
 
-import java.util.Collection;
 import java.util.List;
 
-public class Variation1 extends War {
+public class Variation2 extends War {
 
-	public Variation1(List<Player> players, Deck mainDeck) {
+	public Variation2(List<Player> players, Deck mainDeck) {
 		super(players, mainDeck);
 	}
 	
 	public void playGame() {
-		int iterations = 0;
-		while(iterations < 30 && players.get(PLAYER_1).getPlayerDeck().getCard() != null
-				&& players.get(PLAYER_2).getPlayerDeck().getCard() != null) 
-		{
+		// For variations 2 and 3 players run out of cards at the same time.
+		while(players.get(PLAYER_1).getPlayerDeck().getCard() != null) {
 			runRound(players);
-			iterations++;
 		}
-		checkDecks();
+		checkScores();
 	}
 	
 	private void runRound(List<Player> players) {
@@ -48,23 +44,13 @@ public class Variation1 extends War {
 		}
 	}
 	
-	@Override
-	public void collectDownPiles(int winner) {
-		while (!players.get(PLAYER_1).getDownPile().getDeck().isEmpty()) {
-			players.get(winner).getPlayerDeck().addCardToBottomOfDeck(players.get(PLAYER_1).getDownPile().removeCard());
-		}
-		while (!players.get(PLAYER_2).getDownPile().getDeck().isEmpty()) {
-			players.get(winner).getPlayerDeck().addCardToBottomOfDeck(players.get(PLAYER_2).getDownPile().removeCard());
-		}
-	}
-	
-	private void checkDecks() {
-		if ( players.get(PLAYER_1).getPlayerDeck().getDeck().size() > 
-			players.get(PLAYER_2).getPlayerDeck().getDeck().size() ) 
+	private void checkScores() {
+		if ( players.get(PLAYER_1).getScorePile().getDeck().size() > 
+				players.get(PLAYER_2).getScorePile().getDeck().size() ) 
 		{
 			System.out.println(players.get(PLAYER_1).getName() + " wins the game!");
-		} else if (players.get(PLAYER_2).getPlayerDeck().getDeck().size() > 
-			players.get(PLAYER_1).getPlayerDeck().getDeck().size() ) 
+		} else if (players.get(PLAYER_2).getScorePile().getDeck().size() > 
+					players.get(PLAYER_1).getScorePile().getDeck().size() ) 
 		{
 			System.out.println(players.get(PLAYER_2).getName() + " wins the game!");
 		} else 
@@ -72,4 +58,6 @@ public class Variation1 extends War {
 			System.out.println("Tie game!");
 		}
 	}
+
+
 }

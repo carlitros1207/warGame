@@ -25,10 +25,25 @@ public class War {
 			for (Player player : players) {
 				player.getPlayerDeck().addCardToTopOfDeck(mainDeck.removeCard());
 			}
-
 		}
 	}
 	
+	public void collectDownPiles(int winner) {
+		while (!players.get(PLAYER_1).getDownPile().getDeck().isEmpty()) {
+			players.get(winner).getScorePile().addCardToTopOfDeck(players.get(PLAYER_1).getDownPile().removeCard());
+		}
+		while (!players.get(PLAYER_2).getDownPile().getDeck().isEmpty()) {
+			players.get(winner).getScorePile().addCardToTopOfDeck(players.get(PLAYER_2).getDownPile().removeCard());
+		}
+		try {
+			players.get(PLAYER_3);
+		} catch (IndexOutOfBoundsException e) {
+			return;
+		}
+		while (!players.get(PLAYER_3).getDownPile().getDeck().isEmpty()) {
+			players.get(winner).getScorePile().addCardToTopOfDeck(players.get(PLAYER_3).getDownPile().removeCard());
+		}
+	}
 	
 	/*
 	public void playGame() {
