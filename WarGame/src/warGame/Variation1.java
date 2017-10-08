@@ -1,6 +1,7 @@
 package warGame;
 
 import java.util.Collection;
+import java.lang.StringBuilder;
 import java.util.List;
 
 public class Variation1 extends War {
@@ -58,18 +59,5 @@ public class Variation1 extends War {
 		}
 	}
 	
-	private void checkDecks() {
-		if ( players.get(PLAYER_1).getPlayerDeck().getDeck().size() > 
-			players.get(PLAYER_2).getPlayerDeck().getDeck().size() ) 
-		{
-			System.out.println(players.get(PLAYER_1).getName() + " wins the game!");
-		} else if (players.get(PLAYER_2).getPlayerDeck().getDeck().size() > 
-			players.get(PLAYER_1).getPlayerDeck().getDeck().size() ) 
-		{
-			System.out.println(players.get(PLAYER_2).getName() + " wins the game!");
-		} else 
-		{
-			System.out.println("Tie game!");
-		}
-	}
+	
 }
