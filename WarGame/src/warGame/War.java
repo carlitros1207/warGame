@@ -23,6 +23,7 @@ public class War {
 	public void dealCardsToPlayers() {
 		while(mainDeck.getDeck().isEmpty() != true) {
 			for (Player player : players) {
+				if (mainDeck.getDeck().isEmpty()) break; // prevents Var3 from crashing
 				player.getPlayerDeck().addCardToTopOfDeck(mainDeck.removeCard());
 			}
 		}

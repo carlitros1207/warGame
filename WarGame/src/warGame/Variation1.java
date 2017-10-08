@@ -43,7 +43,10 @@ public class Variation1 extends War {
 			collectDownPiles(PLAYER_2);
 		} else {
 			System.out.println("WAR!");
+			// 2 cards go in the down pile because one is the card just played
 			players.get(PLAYER_1).getDownPile().addCardToTopOfDeck(players.get(PLAYER_1).getPlayerDeck().removeCard());
+			players.get(PLAYER_1).getDownPile().addCardToTopOfDeck(players.get(PLAYER_1).getPlayerDeck().removeCard());
+			players.get(PLAYER_2).getDownPile().addCardToTopOfDeck(players.get(PLAYER_2).getPlayerDeck().removeCard());
 			players.get(PLAYER_2).getDownPile().addCardToTopOfDeck(players.get(PLAYER_2).getPlayerDeck().removeCard());
 			runRound(players);
 		}
