@@ -38,19 +38,26 @@ public class Variation3 extends War {
 				if (player.getPlayerDeck().getCard().getCardValue().getValue() == max
 						&& player != projectedWinner) {
 					System.out.println("WAR!");
+					addToDownPiles(players);
+					addToDownPiles(players);
+					/*
 					for (Player p : players) {      // 2 cards go in the down pile because one is the card just played
 						p.getDownPile().addCardToTopOfDeck(p.getPlayerDeck().removeCard());
 						p.getDownPile().addCardToTopOfDeck(p.getPlayerDeck().removeCard());
-					}					
+					}
+					*/					
 					runRound(players);
-					break;
+					return;
 				}
 			}
 			// no one matched the highest value so winner takes all
 			System.out.println(projectedWinner.getName() + " wins this round!");
+			addToDownPiles(players);
+			/*
 			players.get(PLAYER_1).getDownPile().addCardToTopOfDeck(players.get(PLAYER_1).getPlayerDeck().removeCard());
 			players.get(PLAYER_2).getDownPile().addCardToTopOfDeck(players.get(PLAYER_2).getPlayerDeck().removeCard());
 			players.get(PLAYER_3).getDownPile().addCardToTopOfDeck(players.get(PLAYER_3).getPlayerDeck().removeCard());
+			*/
 			collectDownPiles(winnerIndex);
 		}
 	}
