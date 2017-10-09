@@ -65,90 +65,14 @@ public class War {
 			winnerString.append("Tie game!");
 		}
 		return winnerString.toString();
-	}
-	
-	
-	/*
-	public void playGame() {
-		int iterations = 0;
-		while(iterations < 30 && player2.getPlayerDeck().getCard() != null && player1.getPlayerDeck().getCard() != null) {
-			runRound(this.player1,this.player2);
-			iterations++;
-		}
-		checkDecks();
-	}
-	
-	private void runRound(Player player1 , Player player2){
-		if(player2.getPlayerDeck().getCard() != null && player1.getPlayerDeck().getCard() != null) {
-			if(player1.getPlayerDeck().getCard().getCardValue().getValue() < player2.getPlayerDeck().getCard().getCardValue().getValue()) {
-				System.out.println(player1.getName() + " played " + player1.getPlayerDeck().getCard());
-				System.out.println(player2.getName() + " played " + player2.getPlayerDeck().getCard());
-				System.out.println(player2.getName() + " wins this round!");
-				mainDeck.addCardToDeck(player1.getPlayerDeck().removeCard());
-				mainDeck.addCardToDeck(player2.getPlayerDeck().removeCard());
-				player1.getPlayerDeck().addCardToDeck(mainDeck.removeCard());
-				player1.getPlayerDeck().addCardToDeck(mainDeck.removeCard());
+	}		
 
-			}else {
-				if(player1.getPlayerDeck().getCard().getCardValue().getValue() > player2.getPlayerDeck().getCard().getCardValue().getValue()) {
-					System.out.println(player1.getName() + " played " + player1.getPlayerDeck().getCard());
-					System.out.println(player2.getName() + " played " + player2.getPlayerDeck().getCard());
-					System.out.println(player1.getName() + " wins this round!");
-					mainDeck.addCardToDeck(player1.getPlayerDeck().removeCard());
-					mainDeck.addCardToDeck(player2.getPlayerDeck().removeCard());
-					player2.getPlayerDeck().addCardToDeck(mainDeck.removeCard());
-					player2.getPlayerDeck().addCardToDeck(mainDeck.removeCard());
-				}else {
-					if(player1.getPlayerDeck().getCard().getCardValue().getValue() == player2.getPlayerDeck().getCard().getCardValue().getValue()) {
-						System.out.println(player1.getName() + " played " + player1.getPlayerDeck().getCard());
-						System.out.println(player2.getName() + " played " + player2.getPlayerDeck().getCard());
-						System.out.println("WAR!");
-						mainDeck.addCardToDeck(player1.getPlayerDeck().removeCard());
-						mainDeck.addCardToDeck(player2.getPlayerDeck().removeCard());
-						runRound(player1, player2);
-					}
-				}
-			}		
+	public void addToDownPiles(List<Player> players) {
+		for (Player player : players) {
+			player.getDownPile().addCardToTopOfDeck(player.getPlayerDeck().removeCard());
 		}
 	}
 	
-
-	
-	public void checkDecks() {
-		if(player1.getPlayerDeck().getDeck().isEmpty() == true) {
-			System.out.println(player1.getName() + " wins the game!");
-			System.exit(0);
-		}
-		if(player2.getPlayerDeck().getDeck().isEmpty() == true) {
-			System.out.println(player2.getName() + " wins the game!");
-			System.exit(0);
-		}
-
-	}
-	
-
-	
-	public int getPlayer1() {
-		return 0;
-	}
-
-
-	public void setPlayer1(Player player1) {
-		this.player1 = player1;
-	}
-
-
-	public int getPlayer2() {
-		return 1;
-	}
-
-
-	public void setPlayer2(Player player2) {
-		this.player2 = player2;
-	}
-	*/
-
-
 	public Deck getMainDeck() {
 		return mainDeck;
 	}
