@@ -73,6 +73,10 @@ public class War {
 		}
 	}
 	
+	public int getPlayersCardValue(int index) {
+		return players.get(index).getPlayerDeck().getCard().getCardValue().getValue();
+	}
+	
 	public Deck getMainDeck() {
 		return mainDeck;
 	}

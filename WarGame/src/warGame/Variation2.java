@@ -22,33 +22,21 @@ public class Variation2 extends War {
 			System.out.println(players.get(PLAYER_2).getName() + " played " + players.get(PLAYER_2).getPlayerDeck().getCard());
 		} else return;
 		
-		if ( players.get(PLAYER_1).getPlayerDeck().getCard().getCardValue().getValue() > 
-			players.get(PLAYER_2).getPlayerDeck().getCard().getCardValue().getValue() )
+		if ( getPlayersCardValue(PLAYER_1) > getPlayersCardValue(PLAYER_2) )
 		{
 			System.out.println(players.get(PLAYER_1).getName() + " wins this round!");
 			addToDownPiles(players);
-			//players.get(PLAYER_1).getDownPile().addCardToTopOfDeck(players.get(PLAYER_1).getPlayerDeck().removeCard());
-			//players.get(PLAYER_2).getDownPile().addCardToTopOfDeck(players.get(PLAYER_2).getPlayerDeck().removeCard());
 			collectDownPiles(PLAYER_1);
-		} else if ( players.get(PLAYER_2).getPlayerDeck().getCard().getCardValue().getValue() > 
-					players.get(PLAYER_1).getPlayerDeck().getCard().getCardValue().getValue() )
+		} else if ( getPlayersCardValue(PLAYER_2) > getPlayersCardValue(PLAYER_1) )
 		{
 			System.out.println(players.get(PLAYER_2).getName() + " wins this round!");
 			addToDownPiles(players);
-			//players.get(PLAYER_1).getDownPile().addCardToTopOfDeck(players.get(PLAYER_1).getPlayerDeck().removeCard());
-			//players.get(PLAYER_2).getDownPile().addCardToTopOfDeck(players.get(PLAYER_2).getPlayerDeck().removeCard());
 			collectDownPiles(PLAYER_2);
 		} else {
 			System.out.println("WAR!");
 			// 2 cards go in the down pile because one is the card just played
 			addToDownPiles(players);
 			addToDownPiles(players);
-			/*
-			players.get(PLAYER_1).getDownPile().addCardToTopOfDeck(players.get(PLAYER_1).getPlayerDeck().removeCard());
-			players.get(PLAYER_1).getDownPile().addCardToTopOfDeck(players.get(PLAYER_1).getPlayerDeck().removeCard());
-			players.get(PLAYER_2).getDownPile().addCardToTopOfDeck(players.get(PLAYER_2).getPlayerDeck().removeCard());
-			players.get(PLAYER_2).getDownPile().addCardToTopOfDeck(players.get(PLAYER_2).getPlayerDeck().removeCard());
-			*/
 			runRound(players);
 		}
 	}
